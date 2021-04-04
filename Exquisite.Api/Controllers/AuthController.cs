@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Controllers
+namespace Exquisite.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

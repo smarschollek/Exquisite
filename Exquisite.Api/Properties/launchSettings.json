@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "WebApi": {
+    "Exquisite.Api": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
