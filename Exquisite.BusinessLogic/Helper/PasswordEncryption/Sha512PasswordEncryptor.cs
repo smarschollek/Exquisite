@@ -1,9 +1,9 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace Exquisite.BusinessLogic.Helper.StringEncryption
+namespace Exquisite.BusinessLogic.Helper.PasswordEncryption
 {
-    internal class SHA512PasswordEncrypter : IPasswordEncrypter
+    internal class Sha512PasswordEncryptor : IPasswordEncryptor
     {
         public string Encrypt(string password, string salt)
         {

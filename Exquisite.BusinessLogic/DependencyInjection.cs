@@ -1,9 +1,11 @@
-﻿using Exquisite.BusinessLogic.Helper.StringEncryption;
+﻿using System;
+using System.IO;
 using LiteDB;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using Exquisite.BusinessLogic.Helper.PasswordEncryption;
 
 namespace Exquisite.BusinessLogic
 {
@@ -11,8 +13,8 @@ namespace Exquisite.BusinessLogic
     {
         public static IServiceCollection AddBusinessLogic(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddSingleton<IPasswordEncrypter, SHA512PasswordEncrypter>();
-            services.AddTransient<ILiteDatabase>(options => new LiteDatabase("storage.db"));
+            services.AddSingleton<IPasswordEncryptor, Sha512PasswordEncryptor>();
+            services.AddTransient<ILiteDatabase>(options => new LiteDatabase(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "storage.db")));
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
             return services;

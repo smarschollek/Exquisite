@@ -1,4 +1,5 @@
-﻿using Exquisite.BusinessLogic.UserManagement.Commands;
+﻿using System;
+using Exquisite.BusinessLogic.UserManagement.Commands;
 using Exquisite.BusinessLogic.UserManagement.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -18,9 +19,16 @@ namespace Exquisite.Api.Controllers
         }
 
         [HttpPost("Create")]
-        public ActionResult Create([FromBody] CreateUserCommand command)
+        public async Task<ActionResult> Create([FromBody] CreateUserCommand command)
         {
-            _mediator.Send(command);
+            await _mediator.Send(command);
+            return Ok();
+        }
+        
+        [HttpPost("Delete")]
+        public async Task<ActionResult> Delete([FromBody] DeleteUserCommand command)
+        {
+            await _mediator.Send(command);
             return Ok();
         }
 
