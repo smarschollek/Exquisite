@@ -31,6 +31,13 @@ namespace Exquisite.Api.Controllers
             return Ok();
         }
         
+        [HttpPost("Delete")]
+        public async Task<ActionResult> Delete([FromBody] DeleteRecipeCommand command)
+        {
+            await _mediator.Send(command);
+            return Ok();
+        }
+        
         [HttpGet("All")]
         public async Task<ActionResult> All()
         {
